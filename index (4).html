@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>OCOP Lệ Thủy</title>
+
+<style>
+/* ===== NỀN BE + HOA VĂN NHẸ ===== */
+body{
+    margin:0;
+    font-family: 'Be Vietnam Pro', Arial, sans-serif;
+    background-color:#f3eadf;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(0,0,0,0.03) 1px, transparent 0);
+    background-size:18px 18px;
+}
+
+
+/* ===== HEADER ===== */
+header{
+    background:#755C48;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* ===== BANNER (HIỆN ĐẦY ĐỦ ẢNH GỐC) ===== */
+.banner{
+    width:100%;
+    aspect-ratio: 16 / 7;        /* tỉ lệ cân bằng – rất hợp ảnh OCOP */
+    background-image:url("https://uploads.onecompiler.io/443buw9mk/44cbrtwsg/%E1%BA%A2nh%20ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%202026-02-02%20000750.png");
+    background-size:contain;     /* không cắt ảnh */
+    background-position:center;
+    background-repeat:no-repeat;
+    background-color:#f3eadf;    /* nền BE cùng web */
+}
+
+
+
+/* ===== SECTION ===== */
+section{
+    padding:30px;
+}
+
+/* ===== SẢN PHẨM ===== */
+.products{
+    display:flex;
+    gap:20px;
+}
+
+.product{
+    background:white;
+    width:33%;
+    padding:15px;
+    box-shadow:0 0 8px #ccc;
+    text-align:center;
+}
+
+.product img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.price{
+    color:#d35400;
+    font-weight:bold;
+}
+
+button{
+    background:#755C48;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    cursor:pointer;
+}
+
+/* ===== TRANG CHI TIẾT ===== */
+#detail{
+    display:none;
+}
+
+.detail-box{
+    background:white;
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+    box-shadow:0 0 10px #bbb;
+}
+
+.back{
+    color:#755C48;
+    cursor:pointer;
+    margin-bottom:15px;
+    display:inline-block;
+}
+
+/* ===== ĐẶT HÀNG ===== */
+.order{
+    background:white;
+    max-width:400px;
+    margin:auto;
+    padding:20px;
+    box-shadow:0 0 8px #ccc;
+}
+
+input, select{
+    width:100%;
+    padding:8px;
+    margin-bottom:10px;
+}
+
+footer{
+    background:#ddd;
+    text-align:center;
+    padding:15px;
+}
+.product{
+    background:white;
+    width:33%;
+    padding:15px;
+    box-shadow:0 0 8px #ccc;
+    text-align:center;
+    transition: all 0.3s ease;
+}
+
+.product:hover{
+    box-shadow:0 8px 18px rgba(0,0,0,0.25);
+    transform: translateY(-4px);
+}
+
+.product:hover button{
+    background:#9c7a5c;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>OCOP LỆ THỦY</h1>
+    <p>Quảng bá sản phẩm đặc sản địa phương</p>
+</header>
+
+<!-- ===== TRANG CHỦ ===== -->
+<div id="home">
+
+    <!-- BANNER -->
+    <div class="banner">
+        
+    </div>
+
+    <section>
+        <h2>Giới thiệu địa phương</h2>
+        <p>
+        Lệ Thủy – Quảng Trị là vùng đất giàu truyền thống văn hóa,
+        nổi tiếng với các sản phẩm OCOP như khoai gieo, gạo Lệ Thủy,
+        bánh bột lọc, góp phần phát triển kinh tế địa phương.
+        </p>
+    </section>
+
+    <section>
+        <h2>Sản phẩm OCOP tiêu biểu</h2>
+
+        <div class="products">
+
+            <div class="product">
+                <img src="https://uploads.onecompiler.io/443buw9mk/44cbnj7w9/c73a07d3-a030-4191-9df8-15d1cb245c33.jpg">
+                <h3>Khoai gieo</h3>
+                <p class="price">80.000đ / gói</p>
+                <p>Đặc sản dai – ngọt – bùi.</p>
+                <button onclick="openDetail('khoai')">Xem chi tiết</button>
+            </div>
+
+            <div class="product">
+                <img src="https://uploads.onecompiler.io/443buw9mk/44cbnj7w9/c821718d-a97c-4ba5-877c-41c43ef67eb0.jpg">
+                <h3>Gạo Lệ Thủy</h3>
+                <p class="price">25.000đ / kg</p>
+                <p>Gạo thơm, dẻo tự nhiên.</p>
+                <button onclick="openDetail('gao')">Xem chi tiết</button>
+            </div>
+
+            <div class="product">
+                <img src="https://uploads.onecompiler.io/443buw9mk/44cbnj7w9/7a9babd6-ed49-482e-a98c-c4686faf8b86.jpg">
+                <h3>Bánh bột lọc</h3>
+                <p class="price">40.000đ / hộp</p>
+                <p>Bánh dai, nhân đậm.</p>
+                <button onclick="openDetail('banh')">Xem chi tiết</button>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<!-- ===== TRANG CHI TIẾT ===== -->
+<div id="detail">
+    <section class="detail-box">
+        <span class="back" onclick="goHome()">← Quay lại trang chủ</span>
+
+        <img id="detailImg" style="width:100%;max-height:300px;object-fit:cover;margin-bottom:20px;">
+        <div id="detailText"></div>
+    </section>
+</div>
+
+<!-- ===== ĐẶT HÀNG ===== -->
+<section>
+<h2>Đặt hàng</h2>
+<div class="order">
+<form onsubmit="orderSuccess(event)">
+<input type="text" placeholder="Họ và tên" required>
+<input type="tel" placeholder="Số điện thoại" required>
+<select>
+<option>Khoai gieo</option>
+<option>Gạo Lệ Thủy</option>
+<option>Bánh bột lọc</option>
+</select>
+<input type="number" placeholder="Số lượng" min="1" required>
+<button type="submit">Gửi đơn hàng</button>
+</form>
+</div>
+</section>
+
+<footer>
+Liên hệ: 0xxx xxx xxx | Zalo | Fanpage OCOP Lệ Thủy
+</footer>
+
+<script>
+const data = {
+    khoai:{
+        img:"https://uploads.onecompiler.io/443buw9mk/44cbnj7w9/c73a07d3-a030-4191-9df8-15d1cb245c33.jpg",
+        html:`
+        <h2>Khoai gieo Lệ Thủy</h2>
+        <p><b>Nguồn gốc:</b> Món ăn dân gian truyền thống của người dân Lệ Thủy.</p>
+        <p><b>Quy trình sản xuất:</b></p>
+        <ul>
+            <li>Chọn khoai lang già</li>
+            <li>Luộc – thái – phơi nắng</li>
+            <li>Phơi khoai đã hấp</li>
+        </ul>
+        <p><b>Chứng nhận OCOP:</b> OCOP 3 sao</p>`
+    },
+    gao:{
+        img:"https://uploads.onecompiler.io/443buw9mk/44cbnj7w9/c821718d-a97c-4ba5-877c-41c43ef67eb0.jpg",
+        html:`
+        <h2>Gạo Lệ Thủy</h2>
+        <p><b>Nguồn gốc:</b> Trồng trên cánh đồng phù sa sông Kiến Giang.</p>
+        <p><b>Quy trình sản xuất:</b> Gieo trồng tự nhiên – thu hoạch – xay xát hiện đại.</p>
+        <p><b>Chứng nhận OCOP:</b> OCOP 4 sao</p>`
+    },
+    banh:{
+        img:"https://uploads.onecompiler.io/443buw9mk/44cbnj7w9/7a9babd6-ed49-482e-a98c-c4686faf8b86.jpg",
+        html:`
+        <h2>Bánh bột lọc</h2>
+        <p><b>Nguồn gốc:</b> Đặc sản ẩm thực truyền thống Quảng Bình.</p>
+        <p><b>Quy trình sản xuất:</b> Bột năng – nhân tôm thịt – gói lá – hấp chín.</p>
+        <p><b>Chứng nhận OCOP:</b> OCOP 3 sao</p>`
+    }
+};
+
+function openDetail(id){
+    document.getElementById("home").style.display="none";
+    document.getElementById("detail").style.display="block";
+    document.getElementById("detailImg").src = data[id].img;
+    document.getElementById("detailText").innerHTML = data[id].html;
+    window.scrollTo(0,0);
+}
+
+function goHome(){
+    document.getElementById("detail").style.display="none";
+    document.getElementById("home").style.display="block";
+    window.scrollTo(0,0);
+}
+
+function orderSuccess(e){
+    e.preventDefault();
+    alert("🎉 ĐẶT HÀNG THÀNH CÔNG!\nChúng tôi sẽ liên hệ sớm.");
+    e.target.reset();
+}
+</script>
+
+</body>
+</html>
